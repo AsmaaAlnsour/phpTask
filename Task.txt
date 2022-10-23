@@ -1,0 +1,95 @@
+CREATE TABLE education(
+    education_id INT NOT NULL,
+    education varchar(255),
+    id INT NOT NULL,
+    PRIMARY KEY(education_id ),
+    FOREIGN KEY(id) REFERENCES students(id)
+) ENGINE = INNODB;
+1//
+
+INSERT INTO education ( education , ID)
+VALUES ('PHD' , 5); 
+
+
+1.1
+
+INSERT INTO students ( first name, Middle name, family name	,Date of birth, degree	,Major Address ,Age ,Tell-number)
+VALUES ('Cardinal','Tom B. Erichsen','1995-03-26','89','Jordan,Aqaba','27','0777652895');
+
+1.2
+
+INSERT INTO students
+VALUES ('12','Cardinal','Tom B. Erichsen','1995-03-26','89','Jordan,Aqaba','27','0777652895');
+
+1.3
+INSERT INTO students
+VALUES ('Cardinal','Tom B. Erichsen',1995-03-26,89,'Jordan,Aqaba',27,0777652895);
+
+
+2//
+SELECT * FROM students;
+
+
+3//
+UPDATE education
+SET education='PHD'
+WHERE education_id=3;
+
+4//SQL DELETE Statement
+DELETE FROM education WHERE id=3;
+
+5//SQL WHERE Clause
+SELECT * FROM education
+WHERE ID=1;
+
+
+6//SQL AND, OR and NOT Operators
+SELECT * FROM education
+WHERE Not education='Phd' AND (education="Bachelor's degree" OR id=9);
+
+7//SQL ORDER BY Keyword
+SELECT * FROM education
+ORDER BY education;
+
+8//SQL MIN() and MAX() Functions
+SELECT MIN(id) AS Smallestid
+FROM education;
+....
+SELECT MAX(id) AS Largestid
+FROM education;
+
+9//SQL COUNT(), AVG() and SUM() Functions
+SELECT COUNT(education_id)
+FROM education
+....
+SELECT AVG(education_id)
+FROM education
+
+//like
+SELECT * FROM students WHERE first_name LIKE 'a%'
+
+//groub
+SELECT COUNT(degree), Major_Address
+FROM students
+GROUP BY Major_Address
+ORDER BY COUNT(degree) DESC;
+
+
+//SQL INNER JOIN Keyword
+
+SELECT education.education_id,students.id
+FROM education
+INNER JOIN students
+ON education.education_id = students.id;
+
+
+
+SELECT education.education_id,students.id,students.first_name,students.Middle_name,students.family_name,students.Date_of_birth,students.degree,students.Major_Address,students.Age,students.Tell_number,education.education
+FROM education
+INNER JOIN students
+ON education.education_id = students.id;
+
+
+
+
+

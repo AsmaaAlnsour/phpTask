@@ -1,0 +1,80 @@
+<?php 
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+
+	$user_data = check_login($con);
+    // $x = check_Admin($con)
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My website</title>
+</head>
+<body>
+
+	<a href="logout.php">Logout</a>
+	<h1>This is the Admin page</h1>
+
+	<br>
+	Hello, <?php echo $user_data['FirstName']; 
+    
+    echo "<br><h1>Table</h1><br><br>";
+    echo "<table style='border: solid 1px black;'>";
+    echo "<tr><th>ID</th><th>FirstName</th><th>MiddleName</th><th>Lastname</th><th>Familyname</th>
+    <th>Email</th><th>Password</th><th>DateofBirth</th><th>Mobile</th><th>Edit</th><th>Delete</th></tr>";
+    
+ 
+class TableRows extends RecursiveIteratorIterator {
+    function construct($it) {
+      parent::construct($it, self::LEAVES_ONLY);
+    }
+  
+    function current() {
+      return "<td style='width:150px;border:1px solid black;'>" . parent::current(). "</td>";
+    }
+  
+    function beginChildren() {
+      echo "<tr>";
+    }
+  
+    function endChildren() {
+      
+        echo "<td style='width:150px;border:1px solid black;'>" . "<a href='Edit.php?GetID="2"'>Edit</a> </td>";
+        echo "<td style='width:150px;border:1px solid black;'>" . " <a href='#'>Delete</a>". "</td>";
+      echo "</tr>" . "\n";
+    }
+  }
+  
+  $servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "login_sample_db";
+  try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $conn->prepare("SELECT ID,	FirstName,	MiddleName,	Lastname,	Familyname,	Email,	Password1,	DateofBirth,	Mobile FROM users");
+    $stmt->execute();
+    
+
+  
+    // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+      echo $v;
+    }
+  } catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+  }
+  $conn = null;
+  echo "</table>";
+   ?>
+   
+    
+    
+    
+</body>
+</html>

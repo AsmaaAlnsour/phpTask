@@ -1,0 +1,92 @@
+.signupContainer{
+    width: 500px ;
+    padding: 50px;
+    margin: auto;
+    border: solid 7px gray;
+}
+.signupContainer p {
+    margin-top: 4%;
+    margin-left: 20%;
+    color: gray;
+}
+.signupContainer h1{
+    margin-left: 30%;
+
+}
+.signupContainer button{
+    padding: 10px 165px;
+    border-radius: 40px;
+    border-color: #FF5252;
+    background-color: #FF5252;
+    margin: 100px;
+}
+
+/********************************************* SignIn *******************************************************************/
+
+.signinContainer{
+    border: solid 7px gray;
+    width: 500px ;
+    padding: 50px;
+    margin: auto;
+    margin-top: 100px;
+
+}
+.signinContainer p {
+    margin-top: 4%;
+    margin-left: 17%;
+    color: gray;
+}
+.signinContainer h1{
+    margin-left: 30%;
+
+}
+.signinContainer button{
+    padding: 10px 165px;
+    border-radius: 40px;
+    border-color: #3D5AFE;
+    background-color: #3D5AFE;
+}
+.eye{
+    width: 100%;
+ position: relative;
+ 
+}
+.bi{
+
+ display: flex;
+ align-items: center;
+ position: absolute;
+ height: 100%;
+ top: 0;
+ right: 0;
+ padding-top: 4.5%;
+ padding-right: 4.5%;
+ margin-right: 2%;
+}
+.error{
+    color: red;
+}
+
+/********************************************* index *******************************************************************/
+
+#indexContainer{
+    width: 600px ;
+    padding: 50px;
+    margin: auto;
+    border: solid 8px gray;
+
+}
+
+.signupContainer .two{
+    padding: 10px 165px;
+    border-radius: 40px;
+    border-color: #FF5252;
+    background-color: #FF5252;
+    margin-top: 20px;
+} 
+.signupContainer .one{
+    padding: 10px 165px;
+    border-radius: 40px;
+
+    margin-top: 20px;
+} 
